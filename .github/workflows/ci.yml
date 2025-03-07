@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CI: true  # Define CI environment variable
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -18,5 +21,5 @@ jobs:
       - name: Install dependencies
         run: mvn clean install -DskipTests
 
-      - name: Run tests in headless mode
+      - name: Run logic tests (skip GUI tests)
         run: mvn test -Djava.awt.headless=true

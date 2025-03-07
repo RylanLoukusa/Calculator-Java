@@ -1,6 +1,7 @@
 package com.houarizegai.calculator.ui;
 
 import com.houarizegai.calculator.theme.properties.Theme;
+import com.houarizegai.calculator.util.CalculatorLogic;
 import com.houarizegai.calculator.theme.ThemeLoader;
 
 import java.awt.Cursor;
@@ -82,23 +83,9 @@ public class CalculatorUI {
     }
 
     public double calculate(double firstNumber, double secondNumber, char operator) {
-        switch (operator) {
-            case '+':
-                return firstNumber + secondNumber;
-            case '-':
-                return firstNumber - secondNumber;
-            case '*':
-                return firstNumber * secondNumber;
-            case '/':
-                return firstNumber / secondNumber;
-            case '%':
-                return firstNumber % secondNumber;
-            case '^':
-                return Math.pow(firstNumber, secondNumber);
-            default:
-                return secondNumber;
-        }
+        return CalculatorLogic.calculate(firstNumber, secondNumber, operator);
     }
+
 
     private void initThemeSelector() {
         comboTheme = createComboBox(themesMap.keySet().toArray(new String[0]), 230, 30, "Theme");
