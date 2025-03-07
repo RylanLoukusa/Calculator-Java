@@ -13,6 +13,7 @@ class CalculatorUITest {
 
     @BeforeEach
     void setUp() {
+        System.setProperty("java.awt.headless", "true"); // Force headless mode
         calculatorUI = new CalculatorUI();
     }
 
